@@ -6,11 +6,10 @@ class_name Player extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	# add left right movement
-	
 	# pulled down by gravity
 	velocity.y += gravity * delta
 	
-	# apply physics to the player
+	# apply physics to the players
 	move_and_slide()
 
 

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://blab2330xx2ye"]
+
+[ext_resource type="Script" uid="uid://dyo5lgdhpkytw" path="res://materials/coin.gd" id="1_un67p"]
+[ext_resource type="Texture2D" uid="uid://dlmajjx1lelvp" path="res://resource/castle-tileset.png" id="2_tmde0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bost"]
+radius = 5.0990195
+
+[node name="coin" type="Node2D" unique_id=1977524699]
+script = ExtResource("1_un67p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=489263644]
+position = Vector2(1, 1)
+texture = ExtResource("2_tmde0")
+region_enabled = true
+region_rect = Rect2(18, 129, 14, 14)
+
+[node name="area_coin" type="Area2D" parent="." unique_id=1801489051]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_coin" unique_id=1549195898]
+shape = SubResource("CircleShape2D_7bost")
+
+[connection signal="body_entered" from="area_coin" to="." method="_on_area_coin_body_entered"]
