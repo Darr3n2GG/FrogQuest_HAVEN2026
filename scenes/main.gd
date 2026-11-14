@@ -28,6 +28,6 @@ func _input(event: InputEvent) -> void:
 
 func start_game() -> void:
 	main_menu.hide()
-	#game.run()
+	game.process_mode = Node.PROCESS_MODE_INHERIT
 	is_game_running = true
 	is_in_main_menu = false

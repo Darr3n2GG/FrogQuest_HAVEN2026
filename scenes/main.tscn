@@ -21,6 +21,9 @@ default_font_size = 100
 [node name="Main" type="Node" unique_id=478052116]
 script = ExtResource("1_0wfyh")
 
+[node name="Game" parent="." unique_id=1018546056 instance=ExtResource("3_sugp2")]
+process_mode = 4
+
 [node name="MainMenu" type="Control" parent="." unique_id=1381953438]
 layout_mode = 3
 anchors_preset = 15
@@ -60,5 +63,3 @@ offset_right = 1314.0
 offset_bottom = 610.0
 theme = SubResource("Theme_jyhfs")
 text = "Game is Paused."
-
-[node name="Game" parent="." unique_id=1018546056 instance=ExtResource("3_sugp2")]

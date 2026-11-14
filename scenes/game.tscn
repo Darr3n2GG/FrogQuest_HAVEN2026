@@ -16,7 +16,7 @@ size = Vector2(500, 142)
 script = ExtResource("1_yqjtg")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
-position = Vector2(951, 823)
+position = Vector2(960, 480)
 script = ExtResource("2_lnu2h")
 
 [node name="Frog" type="Sprite2D" parent="Player" unique_id=1356393305]
@@ -28,16 +28,17 @@ texture = ExtResource("3_lnu2h")
 shape = SubResource("CapsuleShape2D_codqq")
 
 [node name="Trampoline" type="Area2D" parent="." unique_id=1607831703]
+position = Vector2(969, 687)
 
 [node name="Polygon2D" type="Polygon2D" parent="Trampoline" unique_id=518788022]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(720, 965, 1201, 965, 1202, 1085, 722, 1085)
+polygon = PackedVector2Array(-245, -60, -245, 60, 245, 60, 245, -60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trampoline" unique_id=2034609732]
-position = Vector2(960, 1026)
 shape = SubResource("RectangleShape2D_codqq")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
+position = Vector2(960, 540)
 script = ExtResource("4_lbhrr")
 player = NodePath("../Player")
 
