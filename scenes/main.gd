@@ -1,8 +1,8 @@
 extends Node
 
 
-@onready var main_menu: Control = $MainMenu
-@onready var pause_menu: Control = $PauseMenu
+@onready var main_menu: Control = $GUI/MainMenu
+@onready var pause_menu: Control = $GUI/PauseMenu
 @onready var game: Node2D = $Game
 
 var is_in_main_menu: bool = true

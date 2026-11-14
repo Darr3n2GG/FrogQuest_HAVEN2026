@@ -12,7 +12,7 @@ height = 120.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
 size = Vector2(500, 142)
 
-[node name="Game" type="Node2D" unique_id=1018546056]
+[node name="Game" type="Node2D" unique_id=106302471]
 script = ExtResource("1_yqjtg")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]

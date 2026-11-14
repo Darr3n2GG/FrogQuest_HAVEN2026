@@ -18,13 +18,15 @@ font_names = PackedStringArray("Lato")
 default_font = SubResource("SystemFont_sugp2")
 default_font_size = 100
 
-[node name="Main" type="Node" unique_id=478052116]
+[node name="Main" type="Node" unique_id=909286406]
 script = ExtResource("1_0wfyh")
 
 [node name="Game" parent="." unique_id=1018546056 instance=ExtResource("3_sugp2")]
 process_mode = 4
 
-[node name="MainMenu" type="Control" parent="." unique_id=1381953438]
+[node name="GUI" type="CanvasLayer" parent="." unique_id=1611897889]
+
+[node name="MainMenu" type="Control" parent="GUI" unique_id=1381953438]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,9 +36,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_sugp2")
-metadata/_edit_use_anchors_ = true
 
-[node name="PromptText" type="RichTextLabel" parent="MainMenu" unique_id=2144246779]
+[node name="PromptText" type="RichTextLabel" parent="GUI/MainMenu" unique_id=2144246779]
 layout_mode = 0
 offset_left = 510.0
 offset_top = 807.0
@@ -46,20 +47,21 @@ theme = SubResource("Theme_sgp6g")
 bbcode_enabled = true
 text = "Press Space to Jump"
 scroll_active = false
+metadata/_edit_use_anchors_ = true
 
-[node name="PauseMenu" type="Control" parent="." unique_id=1237535160]
+[node name="PauseMenu" type="Control" parent="GUI" unique_id=1237535160]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
 
-[node name="Head" type="RichTextLabel" parent="PauseMenu" unique_id=850405436]
+[node name="Head" type="RichTextLabel" parent="GUI/PauseMenu" unique_id=850405436]
 layout_mode = 0
 offset_left = 606.0
-offset_top = 470.0
+offset_top = 218.0
 offset_right = 1314.0
-offset_bottom = 610.0
+offset_bottom = 358.0
 theme = SubResource("Theme_jyhfs")
 text = "Game is Paused."
