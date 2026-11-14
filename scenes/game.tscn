@@ -12,11 +12,22 @@ height = 120.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
 size = Vector2(500, 142)
 
+<<<<<<< Updated upstream
 [node name="Game" type="Node2D" unique_id=106302471]
 script = ExtResource("1_yqjtg")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
 position = Vector2(960, 480)
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(483, 121)
+
+[node name="Game" type="Node2D" unique_id=1018546056]
+script = ExtResource("1_yqjtg")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
+position = Vector2(959, 896)
+>>>>>>> Stashed changes
 script = ExtResource("2_lnu2h")
 
 [node name="Frog" type="Sprite2D" parent="Player" unique_id=1356393305]
@@ -36,6 +47,13 @@ polygon = PackedVector2Array(-245, -60, -245, 60, 245, 60, 245, -60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trampoline" unique_id=2034609732]
 shape = SubResource("RectangleShape2D_codqq")
+
+[node name="hitbox" type="StaticBody2D" parent="Trampoline" unique_id=1616097454]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trampoline/hitbox" unique_id=2085178015]
+position = Vector2(959.5, 1025.5)
+shape = SubResource("RectangleShape2D_lbhrr")
+debug_color = Color(0.995287, 0, 0.2157326, 0.41960785)
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 position = Vector2(960, 540)

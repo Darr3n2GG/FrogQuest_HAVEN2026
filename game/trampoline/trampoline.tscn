@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c1cukm8hr1r23"]
-
-[node name="Trampoline" type="Node2D" unique_id=1135136128]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1732048858]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1149796886]
