@@ -12,6 +12,6 @@ func _process(delta):
 
 
 func _on_area_coin_body_entered(body):
-	if body is Player:
+	if body is player:
 		GlCoin.collected += 1
 		queue_free()
