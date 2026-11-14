@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://knabknu6eott"]
 
 [ext_resource type="Script" uid="uid://d3vt3v6ju5dcv" path="res://scenes/main.gd" id="1_0wfyh"]
-[ext_resource type="Script" uid="uid://cq8s2px5yykd7" path="res://game/main_menu.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cq8s2px5yykd7" path="res://scenes/main_menu.gd" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://cmp7q6bbyrbw8" path="res://scenes/game.gd" id="3_sugp2"]
 
 [sub_resource type="SystemFont" id="SystemFont_o5qli"]
 font_names = PackedStringArray("Lato")
@@ -10,7 +11,18 @@ font_names = PackedStringArray("Lato")
 default_font = SubResource("SystemFont_o5qli")
 default_font_size = 100
 
-[node name="Main" type="Node2D" unique_id=785248482]
+[sub_resource type="SystemFont" id="SystemFont_sugp2"]
+font_names = PackedStringArray("Lato")
+
+[sub_resource type="Theme" id="Theme_jyhfs"]
+default_font = SubResource("SystemFont_sugp2")
+default_font_size = 100
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_codqq"]
+radius = 50.0
+height = 120.0
+
+[node name="Main" type="Node" unique_id=478052116]
 script = ExtResource("1_0wfyh")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1381953438]
@@ -18,13 +30,11 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_o5qli")
+script = ExtResource("2_sugp2")
 metadata/_edit_use_anchors_ = true
 
 [node name="PromptText" type="RichTextLabel" parent="MainMenu" unique_id=2144246779]
@@ -37,3 +47,27 @@ theme = SubResource("Theme_sgp6g")
 bbcode_enabled = true
 text = "Press Space to Jump"
 scroll_active = false
+
+[node name="PauseMenu" type="Control" parent="." unique_id=1237535160]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Head" type="RichTextLabel" parent="PauseMenu" unique_id=850405436]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 470.0
+offset_right = 1314.0
+offset_bottom = 610.0
+theme = SubResource("Theme_jyhfs")
+text = "Game is Paused."
+
+[node name="Game" type="Node2D" parent="." unique_id=323469891]
+script = ExtResource("3_sugp2")
+
+[node name="Player" type="CharacterBody2D" parent="Game" unique_id=380207389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player" unique_id=580685567]
+shape = SubResource("CapsuleShape2D_codqq")
