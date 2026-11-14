@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://c1cukm8hr1r23"]
 
-[node name="Trampoline" type="Node2D" unique_id=1135136128]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
+size = Vector2(500, 142)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1732048858]
+[node name="Trampoline" type="Area2D" unique_id=811409433]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1149796886]
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=363073104]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-245, -60, -245, 60, 245, 60, 245, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1809741040]
+shape = SubResource("RectangleShape2D_codqq")

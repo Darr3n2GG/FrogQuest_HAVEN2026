@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://cwhy7uv02cty7"]
+
+[sub_resource type="Theme" id="Theme_2lg1k"]
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_5lsyw"]
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_dbro3"]
+default_font_size = 50
+
+[node name="PauseMenu" type="Control" unique_id=702964974]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseBg" type="ColorRect" parent="." unique_id=1676448257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="Select" type="AudioStreamPlayer" parent="." unique_id=1588387086]
+pitch_scale = 2.9
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=1423263964]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -154.0
+offset_right = 163.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MasterContainer" type="VBoxContainer" parent="Options" unique_id=2035637446]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/MasterContainer" unique_id=2085866149]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/MasterContainer/CenterContainer" unique_id=371785655]
+layout_mode = 2
+theme = SubResource("Theme_2lg1k")
+text = "Master"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/MasterContainer" unique_id=79739770]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/MasterContainer/HBoxContainer" unique_id=673483356]
+layout_mode = 2
+
+[node name="MasterSlider" type="HSlider" parent="Options/MasterContainer/HBoxContainer/CenterContainer" unique_id=1946460580]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="MasterSpinBox" type="SpinBox" parent="Options/MasterContainer/HBoxContainer" unique_id=887931904]
+layout_mode = 2
+focus_next = NodePath("../../../MusicContainer/HBoxContainer/MusicSpinBox")
+focus_previous = NodePath("../../../Continue/ContinueButton")
+focus_mode = 2
+theme = SubResource("Theme_5lsyw")
+value = 100.0
+
+[node name="MusicContainer" type="VBoxContainer" parent="Options" unique_id=2054512669]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/MusicContainer" unique_id=1578018660]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/MusicContainer/CenterContainer" unique_id=969471633]
+layout_mode = 2
+theme = SubResource("Theme_2lg1k")
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/MusicContainer" unique_id=1522858509]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/MusicContainer/HBoxContainer" unique_id=1785911610]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="Options/MusicContainer/HBoxContainer/CenterContainer" unique_id=627728587]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="MusicSpinBox" type="SpinBox" parent="Options/MusicContainer/HBoxContainer" unique_id=831271500]
+layout_mode = 2
+focus_next = NodePath("../../../SFXContainer/HBoxContainer/SFXSpinBox")
+focus_previous = NodePath("../../../MasterContainer/HBoxContainer/MasterSpinBox")
+theme = SubResource("Theme_5lsyw")
+value = 100.0
+
+[node name="SFXContainer" type="VBoxContainer" parent="Options" unique_id=1027808459]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/SFXContainer" unique_id=243498451]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/SFXContainer/CenterContainer" unique_id=2001824581]
+layout_mode = 2
+theme = SubResource("Theme_2lg1k")
+text = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/SFXContainer" unique_id=9350972]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Options/SFXContainer/HBoxContainer" unique_id=2124682892]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="Options/SFXContainer/HBoxContainer/CenterContainer" unique_id=1186615116]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="SFXSpinBox" type="SpinBox" parent="Options/SFXContainer/HBoxContainer" unique_id=2059413655]
+layout_mode = 2
+focus_next = NodePath("../../../Continue/ContinueButton")
+focus_previous = NodePath("../../../MusicContainer/HBoxContainer/MusicSpinBox")
+theme = SubResource("Theme_5lsyw")
+value = 100.0
+
+[node name="Continue" type="MarginContainer" parent="Options" unique_id=716409605]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ContinueButton" type="Button" parent="Options/Continue" unique_id=792379330]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_dbro3")
+text = "Continue"
+
+[connection signal="drag_ended" from="Options/MasterContainer/HBoxContainer/CenterContainer/MasterSlider" to="." method="_on_master_slider_drag_ended"]
+[connection signal="value_changed" from="Options/MasterContainer/HBoxContainer/MasterSpinBox" to="." method="_on_master_spin_box_value_changed"]
+[connection signal="drag_ended" from="Options/MusicContainer/HBoxContainer/CenterContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="value_changed" from="Options/MusicContainer/HBoxContainer/MusicSpinBox" to="." method="_on_music_spin_box_value_changed"]
+[connection signal="drag_ended" from="Options/SFXContainer/HBoxContainer/CenterContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="value_changed" from="Options/SFXContainer/HBoxContainer/SFXSpinBox" to="." method="_on_sfx_spin_box_value_changed"]
+[connection signal="pressed" from="Options/Continue/ContinueButton" to="." method="_on_continue_button_pressed"]
