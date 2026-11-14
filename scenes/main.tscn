@@ -102,6 +102,7 @@ text = "Breath."
 horizontal_alignment = 1
 
 [node name="MasterContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1802606195]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MasterContainer" unique_id=164006074]
@@ -132,6 +133,7 @@ theme = SubResource("Theme_tefeu")
 value = 100.0
 
 [node name="MusicContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1661162419]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MusicContainer" unique_id=1719993080]
@@ -162,6 +164,7 @@ theme = SubResource("Theme_tefeu")
 value = 100.0
 
 [node name="SFXContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1032946754]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/SFXContainer" unique_id=644937514]
