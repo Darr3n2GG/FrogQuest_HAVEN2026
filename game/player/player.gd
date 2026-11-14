@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@onready var criticalTime: Timer = $criticalTime
+@onready var criticalTime: Timer = $CriticalTime
 @export var gravity: float = 980.0
 @export var motion: int = 300
 var speed: int = 0
