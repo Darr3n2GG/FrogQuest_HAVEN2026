@@ -29,6 +29,10 @@ shape = SubResource("CapsuleShape2D_codqq")
 
 [node name="Trampoline" type="Area2D" parent="." unique_id=1607831703]
 
+[node name="Polygon2D" type="Polygon2D" parent="Trampoline" unique_id=518788022]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(720, 965, 1201, 965, 1202, 1085, 722, 1085)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trampoline" unique_id=2034609732]
 position = Vector2(960, 1026)
 shape = SubResource("RectangleShape2D_codqq")
@@ -36,5 +40,11 @@ shape = SubResource("RectangleShape2D_codqq")
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 script = ExtResource("4_lbhrr")
 player = NodePath("../Player")
+
+[node name="Meters" type="Label" parent="PlayerCamera" unique_id=1673763088]
+offset_left = -884.0
+offset_top = -473.0
+offset_right = -581.0
+offset_bottom = -379.0
 
 [connection signal="body_entered" from="Trampoline" to="Player" method="_on_trampoline_body_entered"]
