@@ -9,7 +9,6 @@ var bounceMultiplier: float = -1.2
 var jumped: bool = false
 
 func _physics_process(delta: float) -> void:
-	$Label.text = var_to_str(velocity.y)
 	if Input.is_action_pressed("Jump") and !jumped:
 		# activate movement after first jump
 		graviAcc = gravity
