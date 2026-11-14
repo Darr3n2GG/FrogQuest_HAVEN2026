@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bql6nyrdfmoux"]
 
 [ext_resource type="Script" uid="uid://cmp7q6bbyrbw8" path="res://scenes/game.gd" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://cuoyklr1ekfsb" path="res://game/player.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://cuoyklr1ekfsb" path="res://game/player/player.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c4tf2f7pjl5q4" path="res://images/frog.png" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player_camera.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player/player_camera.gd" id="4_lbhrr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_codqq"]
 radius = 50.0
