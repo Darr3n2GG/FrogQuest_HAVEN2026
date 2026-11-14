@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://knabknu6eott"]
+
+[ext_resource type="Script" uid="uid://d3vt3v6ju5dcv" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cq8s2px5yykd7" path="res://game/main_menu.gd" id="1_o5qli"]
+
+[sub_resource type="SystemFont" id="SystemFont_o5qli"]
+font_names = PackedStringArray("Lato")
+
+[sub_resource type="Theme" id="Theme_sgp6g"]
+default_font = SubResource("SystemFont_o5qli")
+default_font_size = 100
+
+[node name="Main" type="Node2D" unique_id=785248482]
+script = ExtResource("1_0wfyh")
+
+[node name="MainMenu" type="Control" parent="." unique_id=1381953438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_o5qli")
+metadata/_edit_use_anchors_ = true
+
+[node name="PromptText" type="RichTextLabel" parent="MainMenu" unique_id=2144246779]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 807.0
+offset_right = 1410.0
+offset_bottom = 948.0
+theme = SubResource("Theme_sgp6g")
+bbcode_enabled = true
+text = "Press Space to Jump"
+scroll_active = false
