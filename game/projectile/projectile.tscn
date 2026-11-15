@@ -26,4 +26,8 @@ shape = SubResource("RectangleShape2D_7bost")
 shape = SubResource("RectangleShape2D_d1wmf")
 debug_color = Color(0.9484684, 0.22952873, 7.70092e-07, 0.41960785)
 
+[node name="Timer" type="Timer" parent="." unique_id=61723883]
+wait_time = 10.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

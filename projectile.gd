@@ -6,6 +6,7 @@ const SPEED = 300.0
 
 func _ready():
 	global_position.y = initHeight
+	$Timer.start()
 	if dir ==0:
 		global_position.x = 0
 		velocity.x = SPEED
@@ -24,3 +25,7 @@ func _physics_process(_delta):
 func _on_area_2d_body_entered(body):
 	if body == Player:
 		Global.damaged = true
+
+#despawn after certain time
+func _on_timer_timeout():
+	queue_free()

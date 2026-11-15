@@ -3,8 +3,8 @@ class_name Player extends CharacterBody2D
 @onready var criticalTime: Timer = $CriticalTime
 @export var gravity: float = 980.0
 @export var motion: int = 300
-@export var levelBoundary: Array = [20, 200, 400, 800]
-@export var levelMultiplier: Array = [-1.4, -1.8, -2.0, -2.5]
+@export var levelBoundary: float = 20
+@export var levelMultiplier: Array = [-1.4, -1.8]
 var speed: int = 0
 var graviAcc: float = 0
 var bounceMultiplier: float = -1.1
@@ -12,6 +12,7 @@ var jumped: bool = false
 var level: int = 0
 var height: float = 0
 var hasMoved: bool = false
+var maxHeight: float = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -38,11 +39,16 @@ func _physics_process(delta: float) -> void:
 	# apply physics to the players
 	move_and_slide()
 	
-	change_level()
+	#change level and if higher than the boundary
+	if height > levelBoundary:
+		level = 1
 	
 	# die if fall below trampoline
 	if height < -10:
 		Global.gameOver = true
+	
+	if height > maxHeight:
+		maxHeight = height
 	
 	$Frog.update_animation(hasMoved, velocity.y)
 
@@ -70,8 +76,4 @@ func _on_critical_time_timeout():
 		bounceMultiplier = -1.1
 	if Global.damaged: #damaged but failed to hit within time
 		Global.gameOver = true
-
-func change_level():
-	if level < len(levelBoundary) -1:
-		if height > levelBoundary[level]:
-			level += 1
+	
