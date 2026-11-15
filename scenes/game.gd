@@ -1,5 +1,5 @@
 extends Node2D
-
+var projectile_path = preload("res://game/projectile/projectile.tscn")
 
 @onready var meters: Label = $PlayerCamera/Meters
 @onready var player: Player = $Player
@@ -9,3 +9,9 @@ func _physics_process(_delta: float) -> void:
 	player_height = floor(player.height * 10) / 10
 	meters.text = var_to_str(player_height)
 	#900 = upper boundary of trampoline
+
+func summonProjectile():
+	var projectile = projectile_path.instantiate()
+	projectile.dir = randi_range(0,1)
+	projectile.initHeight = randf_range(0, 800)
+	add_child(projectile)

@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 @onready var criticalTime: Timer = $CriticalTime
 @export var gravity: float = 980.0
 @export var motion: int = 300
-@export var levelBoundary: Array = [50, 200, 400]
+@export var levelBoundary: Array = [20, 200, 400, 800]
 @export var levelMultiplier: Array = [-1.4, -1.8, -2.0]
 var speed: int = 0
 var graviAcc: float = 0
@@ -37,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	change_level()
+	
+
 
 # when frog touches trampoline
 func _on_trampoline_body_entered(body: Node2D) -> void:
@@ -45,6 +47,8 @@ func _on_trampoline_body_entered(body: Node2D) -> void:
 		velocity.y = velocity.y * bounceMultiplier
 		bounceMultiplier = -1.1 # reset the multiplier after each jump
 		jumped = false # reset jump state
+		if level > 0:
+			get_parent().summonProjectile()
 
 # player hit jump too early
 func _on_critical_time_timeout():
@@ -53,5 +57,6 @@ func _on_critical_time_timeout():
 		bounceMultiplier = -1.1
 
 func change_level():
-	if height > levelBoundary[level]:
-		level += 1
+	if level < len(levelBoundary):
+		if height > levelBoundary[level]:
+			level += 1

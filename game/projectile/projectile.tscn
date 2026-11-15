@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://m0ba224l5ayk"]
+
+[ext_resource type="Script" uid="uid://bvim44rn027g0" path="res://projectile.gd" id="1_4f6j3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7bost"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bost"]
+size = Vector2(48, 16)
+
+[node name="projectile" type="CharacterBody2D" unique_id=1690657124]
+script = ExtResource("1_4f6j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499946002]
+scale = Vector2(48, 16)
+texture = SubResource("CanvasTexture_7bost")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074615573]
+shape = SubResource("RectangleShape2D_7bost")
