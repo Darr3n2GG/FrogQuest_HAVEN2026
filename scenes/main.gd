@@ -6,6 +6,7 @@ extends Node
 @onready var dying_screen: Control = $UI/DyingScreen
 @onready var gui: Control = $UI/GUI
 @onready var game: Node2D = $Game
+@onready var music: AudioStreamPlayer = $Music
 
 var is_in_main_menu: bool = true
 var is_game_running: bool = false
@@ -30,6 +31,7 @@ func start_game() -> void:
 	game.process_mode = Node.PROCESS_MODE_INHERIT
 	is_game_running = true
 	is_in_main_menu = false
+	music.play()
 	
 func toggle_pause() -> void:
 	if is_game_running:
@@ -48,3 +50,8 @@ func _on_pause_menu_unpause() -> void:
 	pause_menu.hide()
 	game.process_mode = Node.PROCESS_MODE_INHERIT
 	is_game_running = true
+
+
+func _on_music_finished() -> void:
+	await get_tree().create_timer(5).timeout
+	music.play()

@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cq8s2px5yykd7" path="res://scenes/main_menu.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bql6nyrdfmoux" path="res://scenes/game.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cjoithmbqfu6l" path="res://scenes/pause_menu.gd" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://cfjg4yousm2n2" path="res://audio/Bg1.mp3" id="5_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bmoc300xblra2" path="res://audio/Bg2.wav" id="6_o6xl0"]
 
 [sub_resource type="SystemFont" id="SystemFont_tbgi4"]
 font_names = PackedStringArray("Lato")
@@ -38,6 +40,11 @@ font_names = PackedStringArray("Lato")
 [sub_resource type="Theme" id="Theme_tbgi4"]
 default_font = SubResource("SystemFont_jyhfs")
 default_font_size = 50
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jyhfs"]
+streams_count = 2
+stream_0/stream = ExtResource("5_tefeu")
+stream_1/stream = ExtResource("6_o6xl0")
 
 [node name="Main" type="Node" unique_id=909286406]
 script = ExtResource("1_0wfyh")
@@ -382,5 +389,10 @@ offset_transform_position = Vector2(0, 10)
 theme = SubResource("Theme_tbgi4")
 text = "Respawn"
 
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1201122219]
+stream = SubResource("AudioStreamRandomizer_jyhfs")
+volume_db = -17.333
+
 [connection signal="unpause" from="UI/PauseMenu" to="." method="_on_pause_menu_unpause"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MarginContainer/UnpauseBtn" to="UI/PauseMenu" method="_on_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

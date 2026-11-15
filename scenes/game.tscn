@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cjxj02lwkjalo" path="res://images/grass.jpg" id="6_kvuet"]
 [ext_resource type="Texture2D" uid="uid://b8ggenb57c4lb" path="res://images/frog_dead.png" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://bkxjntpac2fuf" path="res://game/player/frog_animation.gd" id="9_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://0qruvae5yn30" path="res://audio/bounce.mp3" id="12_kvuet"]
 
 [sub_resource type="Shader" id="Shader_gee14"]
 code = "shader_type canvas_item;
@@ -207,42 +208,6 @@ animations = [{
 radius = 41.0
 height = 82.0
 
-[sub_resource type="Animation" id="Animation_dinhu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a8")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [255]
-}
-
-[sub_resource type="Animation" id="Animation_kvuet"]
-resource_name = "damaged"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a8")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
-_data = {
-&"RESET": SubResource("Animation_dinhu"),
-&"damaged": SubResource("Animation_kvuet")
-}
-
 [node name="Game" type="Node2D" unique_id=106302471]
 script = ExtResource("1_yqjtg")
 
@@ -355,7 +320,6 @@ script = ExtResource("2_lnu2h")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_codqq")
 animation = &"idle"
-flip_h = true
 script = ExtResource("9_kvpfn")
 
 [node name="Dead" type="Sprite2D" parent="Player" unique_id=777966678]
@@ -371,8 +335,6 @@ shape = SubResource("CapsuleShape2D_codqq")
 [node name="CriticalTime" type="Timer" parent="Player" unique_id=1841720528]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=687401675]
-libraries/ = SubResource("AnimationLibrary_trtic")
 [node name="Label" type="Label" parent="Player" unique_id=1393853727]
 visible = false
 offset_left = -437.0
@@ -381,6 +343,9 @@ offset_right = 435.0
 offset_bottom = 128.0
 text = "YOU HIT THE BIRDS"
 horizontal_alignment = 1
+
+[node name="Bounce" type="AudioStreamPlayer" parent="Player" unique_id=1084019858]
+stream = ExtResource("12_kvuet")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 position = Vector2(960, 611)

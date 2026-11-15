@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 
 @onready var criticalTime: Timer = $CriticalTime
+@onready var bounce: AudioStreamPlayer = $Bounce
+
 @export var gravity: float = 980.0
 @export var motion: int = 300
 @export var levelBoundary: float = 20
@@ -28,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		bounceMultiplier = levelMultiplier[level]
 		# avoid spam jump
 		jumped = true
+		bounce.play()
 	
 	# left right movement
 	var direction = Input.get_axis("Left", "Right")
