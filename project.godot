@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlCoin="*uid://pj6nca2dvca2"
+Global="*uid://h7leeb1t21jx"
 
 [display]
 
