@@ -249,6 +249,17 @@ script = ExtResource("1_yqjtg")
 [node name="Parallax" type="Node2D" parent="." unique_id=197084111]
 script = ExtResource("2_gee14")
 
+[node name="Sky" type="Parallax2D" parent="Parallax" unique_id=506612562]
+scale = Vector2(1.0103947, 1.0045391)
+scroll_scale = Vector2(0, 2.5)
+repeat_size = Vector2(0, 1226)
+repeat_times = 5
+
+[node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
+position = Vector2(950, 0)
+texture = ExtResource("2_p57ef")
+vframes = 2
+
 [node name="Clouds" type="Parallax2D" parent="Parallax" unique_id=816053416]
 material = SubResource("ShaderMaterial_gee14")
 scroll_scale = Vector2(1, 0.7)
@@ -257,18 +268,8 @@ autoscroll = Vector2(10, 0)
 
 [node name="CloudsBg" type="Sprite2D" parent="Parallax/Clouds" unique_id=153369598]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(960, 0)
+position = Vector2(950, 0)
 texture = ExtResource("3_u5sy4")
-vframes = 2
-
-[node name="Sky" type="Parallax2D" parent="Parallax" unique_id=506612562]
-scale = Vector2(1.0103947, 1.0045391)
-scroll_scale = Vector2(0, 2.1)
-repeat_size = Vector2(0, 1000)
-
-[node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
-position = Vector2(960, 0)
-texture = ExtResource("2_p57ef")
 vframes = 2
 
 [node name="CloudArea" type="Area2D" parent="Parallax" unique_id=1188506683]
@@ -285,12 +286,12 @@ libraries/ = SubResource("AnimationLibrary_0tnpc")
 [node name="Bg" type="Node2D" parent="." unique_id=874419414]
 
 [node name="2ForestParallaxVerticalForestMid" type="Sprite2D" parent="Bg" unique_id=733743316]
-position = Vector2(959, -998)
+position = Vector2(973.00006, -1000)
 scale = Vector2(1.023158, 1)
 texture = SubResource("CompressedTexture2D_vtaks")
 
 [node name="1ForestParallaxVerticalForestLow" type="Sprite2D" parent="Bg" unique_id=336574844]
-position = Vector2(956, -954)
+position = Vector2(960, -949)
 scale = Vector2(1.0103947, 1.0045391)
 texture = ExtResource("6_dinhu")
 
@@ -344,10 +345,10 @@ scale = Vector2(0.21166275, 0.2104361)
 texture = ExtResource("6_kvuet")
 
 [node name="Trampoline" parent="." unique_id=811409433 instance=ExtResource("4_iywne")]
-position = Vector2(969, 687)
+position = Vector2(969, 875)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
-position = Vector2(960, 551)
+position = Vector2(960, 739)
 script = ExtResource("2_lnu2h")
 
 [node name="Frog" type="AnimatedSprite2D" parent="Player" unique_id=1354761625]
