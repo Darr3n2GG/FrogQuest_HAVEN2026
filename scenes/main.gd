@@ -3,12 +3,19 @@ extends Node
 
 @onready var main_menu: Control = $UI/MainMenu
 @onready var pause_menu: Control = $UI/PauseMenu
+@onready var dying_screen: Control = $UI/DyingScreen
 @onready var gui: Control = $UI/GUI
 @onready var game: Node2D = $Game
 
 var is_in_main_menu: bool = true
 var is_game_running: bool = false
 
+				
+func _physics_process(_delta):
+	if Global.gameOver:
+		dying_screen.show()
+		game.process_mode = Node.PROCESS_MODE_DISABLED
+		is_game_running = false
 				
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Jump") and is_in_main_menu:

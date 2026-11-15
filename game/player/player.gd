@@ -11,6 +11,7 @@ var bounceMultiplier: float = -1.1
 var jumped: bool = false
 var level: int = 0
 var height: float = 0
+var hasMoved: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -19,12 +20,13 @@ func _physics_process(delta: float) -> void:
 		# activate movement after first jump
 		graviAcc = gravity
 		speed = motion
+		hasMoved = true
 		# increase the multiplier temporarily
 		criticalTime.start(level + 1)
 		bounceMultiplier = levelMultiplier[level]
 		# avoid spam jump
 		jumped = true
-		
+	
 	# left right movement
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
@@ -38,25 +40,35 @@ func _physics_process(delta: float) -> void:
 	
 	change_level()
 	
+	# die if fall below trampoline
+	if height < -10:
+		Global.gameOver = true
+	
 
 
 # when frog touches trampoline
 func _on_trampoline_body_entered(body: Node2D) -> void:
 	if body == self:
-		criticalTime.start()
+		if Global.damaged and !jumped:
+			Global.gameOver = true
+		
 		velocity.y = velocity.y * bounceMultiplier
 		bounceMultiplier = -1.1 # reset the multiplier after each jump
 		jumped = false # reset jump state
+		Global.damaged = false # reset damaged state
 		
 		if level > 0:
 			get_parent().summonProjectile()
-		Global.damaged = false
+		
+		
 
 # player hit jump too early
 func _on_critical_time_timeout():
 	# reduce the multiplier if time out
 	if velocity.y >0:
 		bounceMultiplier = -1.1
+	if Global.damaged: #damaged but failed to hit within time
+		Global.gameOver = true
 
 func change_level():
 	if level < len(levelBoundary) -1:
