@@ -233,7 +233,7 @@ offset_right = 311.0
 offset_bottom = 456.0
 theme = SubResource("Theme_o6xl0")
 bbcode_enabled = true
-text = "Distance Travelled:"
+text = "Distance:"
 fit_content = true
 
 [connection signal="unpause" from="UI/PauseMenu" to="." method="_on_pause_menu_unpause"]

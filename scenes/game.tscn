@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpt6ovj6oyjw" path="res://images/7 Forest parallax vertical cloud 4.png" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c1cukm8hr1r23" path="res://game/trampoline/trampoline.tscn" id="4_iywne"]
 [ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player/player_camera.gd" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://b8ggenb57c4lb" path="res://images/frog_dead.png" id="8_0tnpc"]
 
 [sub_resource type="Shader" id="Shader_gee14"]
 code = "shader_type canvas_item;
@@ -208,8 +209,8 @@ script = ExtResource("2_gee14")
 
 [node name="Sky" type="Parallax2D" parent="Parallax" unique_id=506612562]
 scale = Vector2(1.0103947, 1.0045391)
-scroll_scale = Vector2(0, 1)
-repeat_size = Vector2(0, 1210)
+scroll_scale = Vector2(0, 2.1)
+repeat_size = Vector2(0, 1000)
 
 [node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
 position = Vector2(948.14435, 380.2739)
@@ -219,7 +220,7 @@ vframes = 2
 [node name="Clouds" type="Parallax2D" parent="Parallax" unique_id=816053416]
 material = SubResource("ShaderMaterial_gee14")
 scroll_scale = Vector2(1, 0.7)
-repeat_size = Vector2(1900, 1725)
+repeat_size = Vector2(1900, 1150)
 autoscroll = Vector2(10, 0)
 
 [node name="CloudsBg" type="Sprite2D" parent="Parallax/Clouds" unique_id=153369598]
@@ -239,6 +240,9 @@ position = Vector2(0, -5175)
 position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_codqq")
 
+[node name="Trampoline" parent="." unique_id=811409433 instance=ExtResource("4_iywne")]
+position = Vector2(969, 687)
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
 position = Vector2(960, 551)
 script = ExtResource("2_lnu2h")
@@ -248,14 +252,17 @@ sprite_frames = SubResource("SpriteFrames_codqq")
 animation = &"idle"
 frame_progress = 0.356668
 
+[node name="Dead" type="Sprite2D" parent="Player" unique_id=777966678]
+visible = false
+position = Vector2(-2.0000076, 5.999996)
+scale = Vector2(0.24979742, 0.24979748)
+texture = ExtResource("8_0tnpc")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1183787741]
 shape = SubResource("CapsuleShape2D_codqq")
 
 [node name="CriticalTime" type="Timer" parent="Player" unique_id=1841720528]
 one_shot = true
-
-[node name="Trampoline" parent="." unique_id=811409433 instance=ExtResource("4_iywne")]
-position = Vector2(969, 687)
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 position = Vector2(960, 611)
@@ -264,5 +271,5 @@ script = ExtResource("4_lbhrr")
 player = NodePath("../Player")
 
 [connection signal="body_entered" from="Parallax/CloudArea" to="Parallax" method="_on_cloud_area_body_entered"]
-[connection signal="timeout" from="Player/CriticalTime" to="Player" method="_on_critical_time_timeout"]
 [connection signal="body_entered" from="Trampoline" to="Player" method="_on_trampoline_body_entered"]
+[connection signal="timeout" from="Player/CriticalTime" to="Player" method="_on_critical_time_timeout"]

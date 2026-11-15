@@ -1,28 +1,79 @@
 [gd_scene format=3 uid="uid://m0ba224l5ayk"]
 
 [ext_resource type="Script" uid="uid://bvim44rn027g0" path="res://projectile.gd" id="1_4f6j3"]
+[ext_resource type="Texture2D" uid="uid://dl25fg6rb8aww" path="res://images/bird.png" id="2_06jd3"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7bost"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_08h31"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(0, 0, 156, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpvyg"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(156, 0, 156, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhifc"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(312, 0, 156, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s80ce"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(468, 0, 156, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06jd3"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(312, 0, 156, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ed1w"]
+atlas = ExtResource("2_06jd3")
+region = Rect2(156, 0, 156, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_codqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08h31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpvyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhifc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s80ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06jd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ed1w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bost"]
-size = Vector2(48, 16)
+size = Vector2(78, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1wmf"]
-size = Vector2(48, 18)
+size = Vector2(82, 40)
 
 [node name="projectile" type="CharacterBody2D" unique_id=1690657124]
 script = ExtResource("1_4f6j3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499946002]
-scale = Vector2(48, 16)
-texture = SubResource("CanvasTexture_7bost")
+[node name="Bird" type="AnimatedSprite2D" parent="." unique_id=1855488921]
+sprite_frames = SubResource("SpriteFrames_codqq")
+frame_progress = 0.13113298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074615573]
+position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_7bost")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277127120]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1208226458]
+position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_d1wmf")
 debug_color = Color(0.9484684, 0.22952873, 7.70092e-07, 0.41960785)
 
