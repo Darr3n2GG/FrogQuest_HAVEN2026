@@ -52,6 +52,9 @@ shader_parameter/reverse = false
 shader_parameter/opacity = 1.0
 shader_parameter/use_custom_texture = false
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
+size = Vector2(1920, 20)
+
 [sub_resource type="Animation" id="Animation_u5sy4"]
 length = 0.001
 tracks/0/type = "value"
@@ -87,9 +90,6 @@ _data = {
 &"RESET": SubResource("Animation_u5sy4"),
 &"fade": SubResource("Animation_gee14")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
-size = Vector2(1920, 20)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vtaks"]
 load_path = "res://.godot/imported/2 Forest parallax vertical forest mid.png-228fb6b4a97623b7ed1cb181772c8d9f.ctex"
@@ -207,6 +207,42 @@ animations = [{
 radius = 41.0
 height = 82.0
 
+[sub_resource type="Animation" id="Animation_dinhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a8")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [255]
+}
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a8")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
+_data = {
+&"RESET": SubResource("Animation_dinhu"),
+&"damaged": SubResource("Animation_kvuet")
+}
+
 [node name="Game" type="Node2D" unique_id=106302471]
 script = ExtResource("1_yqjtg")
 
@@ -225,26 +261,26 @@ position = Vector2(960, 0)
 texture = ExtResource("3_u5sy4")
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax" unique_id=505610564]
-reset_on_save = false
-libraries/ = SubResource("AnimationLibrary_0tnpc")
-
-[node name="CloudArea" type="Area2D" parent="Parallax" unique_id=1188506683]
-position = Vector2(0, -5175)
-
-[node name="Sky" type="Parallax2D" parent="Parallax/CloudArea" unique_id=506612562]
+[node name="Sky" type="Parallax2D" parent="Parallax" unique_id=506612562]
 scale = Vector2(1.0103947, 1.0045391)
 scroll_scale = Vector2(0, 2.1)
 repeat_size = Vector2(0, 1000)
 
-[node name="SkyBg" type="Sprite2D" parent="Parallax/CloudArea/Sky" unique_id=80501103]
-position = Vector2(948.14435, 380.2739)
+[node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
+position = Vector2(948.14435, 4551.341)
 texture = ExtResource("2_p57ef")
 vframes = 2
+
+[node name="CloudArea" type="Area2D" parent="Parallax" unique_id=1188506683]
+position = Vector2(0, -5175)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/CloudArea" unique_id=922153924]
 position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_codqq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax" unique_id=505610564]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_0tnpc")
 
 [node name="Bg" type="Node2D" parent="." unique_id=874419414]
 
@@ -287,6 +323,9 @@ shape = SubResource("CapsuleShape2D_codqq")
 
 [node name="CriticalTime" type="Timer" parent="Player" unique_id=1841720528]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=687401675]
+libraries/ = SubResource("AnimationLibrary_trtic")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 position = Vector2(960, 611)

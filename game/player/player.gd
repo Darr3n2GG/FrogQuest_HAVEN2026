@@ -14,6 +14,7 @@ var height: float = 0
 var hasMoved: bool = false
 var maxHeight: float = 0
 
+var has_flicker: bool = false
 
 func _physics_process(delta: float) -> void:
 	height = (900 - global_position.y)/100
@@ -51,14 +52,21 @@ func _physics_process(delta: float) -> void:
 		maxHeight = height
 	
 	$Frog.update_animation(hasMoved, velocity.y)
+	if Global.damaged and not has_flicker:
+		modulate.lightened(10.0)
+		has_flicker = true
+		
 
 
 # when frog touches trampoline
 func _on_trampoline_body_entered(body: Node2D) -> void:
 	if body == self:
-		if Global.damaged and !jumped:
-			Global.gameOver = true
-		
+		if Global.damaged:
+			if !jumped:
+				Global.gameOver = true
+			else:
+				has_flicker = false
+				
 		velocity.y = velocity.y * bounceMultiplier
 		bounceMultiplier = -1.1 # reset the multiplier after each jump
 		jumped = false # reset jump state
