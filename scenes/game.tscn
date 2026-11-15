@@ -318,6 +318,7 @@ script = ExtResource("2_lnu2h")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_codqq")
 animation = &"idle"
+flip_h = true
 script = ExtResource("9_kvpfn")
 
 [node name="Dead" type="Sprite2D" parent="Player" unique_id=777966678]
@@ -332,6 +333,15 @@ shape = SubResource("CapsuleShape2D_codqq")
 
 [node name="CriticalTime" type="Timer" parent="Player" unique_id=1841720528]
 one_shot = true
+
+[node name="Label" type="Label" parent="Player" unique_id=1393853727]
+visible = false
+offset_left = -437.0
+offset_top = -99.0
+offset_right = 435.0
+offset_bottom = 128.0
+text = "YOU HIT THE BIRDS"
+horizontal_alignment = 1
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=2136879828 node_paths=PackedStringArray("player")]
 position = Vector2(960, 611)

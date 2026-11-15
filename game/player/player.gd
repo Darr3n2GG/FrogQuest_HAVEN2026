@@ -51,6 +51,11 @@ func _physics_process(delta: float) -> void:
 		maxHeight = height
 	
 	$Frog.update_animation(hasMoved, velocity.y)
+	
+	if Global.damaged:
+		$Label.show()
+	else: 
+		$Label.hide()
 
 
 # when frog touches trampoline
