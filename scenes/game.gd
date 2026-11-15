@@ -6,5 +6,5 @@ extends Node2D
 
 
 func _physics_process(_delta: float) -> void:
-	meters.text = var_to_str(900 - player.global_position.y)
+	meters.text = var_to_str(player.height)
 	#900 = upper boundary of trampoline
