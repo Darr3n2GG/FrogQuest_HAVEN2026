@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player/player_camera.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://d0t2o3o0j443v" path="res://images/1 Forest parallax vertical forest low.png" id="6_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b8ggenb57c4lb" path="res://images/frog_dead.png" id="8_0tnpc"]
+[ext_resource type="Script" uid="uid://bkxjntpac2fuf" path="res://scenes/frog_animation.gd" id="7_0tnpc"]
 
 [sub_resource type="Shader" id="Shader_gee14"]
 code = "shader_type canvas_item;

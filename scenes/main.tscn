@@ -236,5 +236,149 @@ offset_transform_position = Vector2(0, 10)
 theme = SubResource("Theme_tbgi4")
 text = "Continue"
 
+[node name="DyingScreen" type="Control" parent="UI" unique_id=705113004]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bg" type="ColorRect" parent="UI/DyingScreen" unique_id=1668363654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1883.0
+offset_bottom = 1282.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DyingScreen" unique_id=877043379]
+layout_mode = 0
+offset_left = 613.50006
+offset_top = 245.00002
+offset_right = 1309.5
+offset_bottom = 842.0
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(250, 286)
+theme_override_constants/separation = 10
+
+[node name="Head" type="RichTextLabel" parent="UI/DyingScreen/VBoxContainer" unique_id=796465267]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme = SubResource("Theme_jyhfs")
+text = "Game Over"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MasterContainer" type="VBoxContainer" parent="UI/DyingScreen/VBoxContainer" unique_id=1456914361]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/MasterContainer" unique_id=1477693983]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DyingScreen/VBoxContainer/MasterContainer/CenterContainer" unique_id=110134552]
+layout_mode = 2
+theme = SubResource("Theme_sugp2")
+text = "Master"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DyingScreen/VBoxContainer/MasterContainer" unique_id=1452554658]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/MasterContainer/HBoxContainer" unique_id=1529265202]
+layout_mode = 2
+
+[node name="MasterSlider" type="HSlider" parent="UI/DyingScreen/VBoxContainer/MasterContainer/HBoxContainer/CenterContainer" unique_id=182091026]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="MasterSpinBox" type="SpinBox" parent="UI/DyingScreen/VBoxContainer/MasterContainer/HBoxContainer" unique_id=217379676]
+layout_mode = 2
+theme = SubResource("Theme_tefeu")
+value = 100.0
+
+[node name="MusicContainer" type="VBoxContainer" parent="UI/DyingScreen/VBoxContainer" unique_id=240654825]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/MusicContainer" unique_id=46679064]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DyingScreen/VBoxContainer/MusicContainer/CenterContainer" unique_id=1991266927]
+layout_mode = 2
+theme = SubResource("Theme_sugp2")
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DyingScreen/VBoxContainer/MusicContainer" unique_id=810186781]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/MusicContainer/HBoxContainer" unique_id=108427821]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="UI/DyingScreen/VBoxContainer/MusicContainer/HBoxContainer/CenterContainer" unique_id=592637929]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="MusicSpinBox" type="SpinBox" parent="UI/DyingScreen/VBoxContainer/MusicContainer/HBoxContainer" unique_id=894774427]
+layout_mode = 2
+theme = SubResource("Theme_tefeu")
+value = 100.0
+
+[node name="SFXContainer" type="VBoxContainer" parent="UI/DyingScreen/VBoxContainer" unique_id=1311277355]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/SFXContainer" unique_id=1671856323]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DyingScreen/VBoxContainer/SFXContainer/CenterContainer" unique_id=829087051]
+layout_mode = 2
+theme = SubResource("Theme_sugp2")
+text = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DyingScreen/VBoxContainer/SFXContainer" unique_id=384454696]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DyingScreen/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1077735151]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="UI/DyingScreen/VBoxContainer/SFXContainer/HBoxContainer/CenterContainer" unique_id=1836902860]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+value = 100.0
+
+[node name="SFXSpinBox" type="SpinBox" parent="UI/DyingScreen/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1701070154]
+layout_mode = 2
+theme = SubResource("Theme_tefeu")
+value = 100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DyingScreen/VBoxContainer" unique_id=1199281619]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_right = 70
+
+[node name="UnpauseBtn" type="Button" parent="UI/DyingScreen/VBoxContainer/MarginContainer" unique_id=40683423]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+theme = SubResource("Theme_tbgi4")
+text = "Respawn"
+
 [connection signal="unpause" from="UI/PauseMenu" to="." method="_on_pause_menu_unpause"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MarginContainer/UnpauseBtn" to="UI/PauseMenu" method="_on_button_pressed"]
