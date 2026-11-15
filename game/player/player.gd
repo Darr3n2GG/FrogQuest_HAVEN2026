@@ -17,7 +17,7 @@ var maxHeight: float = 0
 var has_flicker: bool = false
 
 func _physics_process(delta: float) -> void:
-	height = (900 - global_position.y)/100
+	height = (900 - global_position.y) / 100
 	if Input.is_action_pressed("Jump") and !jumped:
 		# activate movement after first jump
 		graviAcc = gravity
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * speed
-	else: 
+	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	# pulled down by gravity
 	velocity.y += graviAcc * delta
@@ -52,10 +52,11 @@ func _physics_process(delta: float) -> void:
 		maxHeight = height
 	
 	$Frog.update_animation(hasMoved, velocity.y)
-	if Global.damaged and not has_flicker:
-		modulate.lightened(10.0)
-		has_flicker = true
-		
+	
+	if Global.damaged:
+		$Label.show()
+	else:
+		$Label.hide()
 
 
 # when frog touches trampoline
@@ -76,12 +77,10 @@ func _on_trampoline_body_entered(body: Node2D) -> void:
 			get_parent().summonProjectile()
 		
 		
-
 # player hit jump too early
 func _on_critical_time_timeout():
 	# reduce the multiplier if time out
-	if velocity.y >0:
+	if velocity.y > 0:
 		bounceMultiplier = -1.1
-	if Global.damaged: #damaged but failed to hit within time
+	if Global.damaged: # damaged but failed to hit within time
 		Global.gameOver = true
-	

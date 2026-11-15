@@ -10,9 +10,11 @@ func _ready():
 	if dir ==0:
 		global_position.x = 0
 		velocity.x = SPEED
+		$Bird.flip_h = false
 	else:
 		global_position.x = 2000
 		velocity.x = -SPEED
+		$Bird.flip_h = true
 
 func _physics_process(_delta):
 	move_and_slide()
