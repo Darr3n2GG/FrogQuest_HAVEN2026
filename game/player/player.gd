@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	if height < -10:
 		Global.gameOver = true
 	
+	$Frog.update_animation(hasMoved, velocity.y)
 
 
 # when frog touches trampoline

@@ -245,9 +245,10 @@ position = Vector2(960, 551)
 script = ExtResource("2_lnu2h")
 
 [node name="Frog" type="AnimatedSprite2D" parent="Player" unique_id=1354761625]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_codqq")
-animation = &"idle"
-frame_progress = 0.63366044
+animation = &"jump"
+frame_progress = 0.11578827
 script = ExtResource("7_0tnpc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1183787741]
