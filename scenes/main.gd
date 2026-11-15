@@ -1,8 +1,9 @@
 extends Node
 
 
-@onready var main_menu: Control = $GUI/MainMenu
-@onready var pause_menu: Control = $GUI/PauseMenu
+@onready var main_menu: Control = $UI/MainMenu
+@onready var pause_menu: Control = $UI/PauseMenu
+@onready var gui: Control = $UI/GUI
 @onready var game: Node2D = $Game
 
 var is_in_main_menu: bool = true
@@ -33,6 +34,8 @@ func toggle_pause() -> void:
 		game.process_mode = Node.PROCESS_MODE_INHERIT
 		is_game_running = true
 
+func update_meters(meters: float) -> void:
+	gui.get_node("Meters").text = "Distance Travelled: " + var_to_str(meters) + "m"
 
 func _on_pause_menu_unpause() -> void:
 	pause_menu.hide()

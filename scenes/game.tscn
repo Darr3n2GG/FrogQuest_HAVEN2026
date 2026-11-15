@@ -154,12 +154,6 @@ limit_bottom = 1000
 script = ExtResource("4_lbhrr")
 player = NodePath("../Player")
 
-[node name="Meters" type="Label" parent="PlayerCamera" unique_id=1673763088]
-offset_left = -884.0
-offset_top = -473.0
-offset_right = -581.0
-offset_bottom = -379.0
-
 [connection signal="body_entered" from="Parallax/CloudArea" to="Parallax" method="_on_cloud_area_body_entered"]
 [connection signal="timeout" from="Player/CriticalTime" to="Player" method="_on_critical_time_timeout"]
 [connection signal="body_entered" from="Trampoline" to="Player" method="_on_trampoline_body_entered"]

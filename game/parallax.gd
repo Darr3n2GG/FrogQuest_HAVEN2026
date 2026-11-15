@@ -3,6 +3,7 @@ extends Node2D
 @onready var sky: Parallax2D = $Sky
 @onready var clouds: Parallax2D = $Clouds
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player: Player = $"../Player"
 
 
 var is_faded: bool = true 
@@ -10,7 +11,7 @@ var is_faded: bool = true
 
 func _physics_process(_delta: float) -> void:
 	if !is_faded:
-		if get_tree().root.get_camera_2d().global_position.y > -1725 * 3:
+		if player.velocity.y < 0:
 			animation_player.play("fade")
 			is_faded = true
 		else:
