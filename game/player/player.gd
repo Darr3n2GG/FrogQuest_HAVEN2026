@@ -57,6 +57,6 @@ func _on_critical_time_timeout():
 		bounceMultiplier = -1.1
 
 func change_level():
-	if level < len(levelBoundary):
+	if level < len(levelBoundary) -1:
 		if height > levelBoundary[level]:
 			level += 1

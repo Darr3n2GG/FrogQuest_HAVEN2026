@@ -12,5 +12,5 @@ func _physics_process(_delta: float) -> void:
 func summonProjectile():
 	var projectile = projectile_path.instantiate()
 	projectile.dir = randi_range(0,1)
-	projectile.initHeight = randf_range(0, 800)
+	projectile.initHeight = randf_range(100* (900-player.levelBoundary[player.level]), 700)
 	add_child(projectile)

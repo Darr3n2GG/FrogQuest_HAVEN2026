@@ -15,10 +15,6 @@ run/main_scene="uid://knabknu6eott"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-GlCoin="*uid://pj6nca2dvca2"
-
 [display]
 
 window/size/viewport_width=1920
