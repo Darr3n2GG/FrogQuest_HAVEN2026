@@ -267,7 +267,7 @@ scroll_scale = Vector2(0, 2.1)
 repeat_size = Vector2(0, 1000)
 
 [node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
-position = Vector2(948.14435, 4551.341)
+position = Vector2(960, 0)
 texture = ExtResource("2_p57ef")
 vframes = 2
 
