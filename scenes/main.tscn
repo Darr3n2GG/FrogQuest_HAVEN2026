@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bql6nyrdfmoux" path="res://scenes/game.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cjoithmbqfu6l" path="res://scenes/pause_menu.gd" id="4_jyhfs"]
 
-[sub_resource type="SystemFont" id="SystemFont_o5qli"]
+[sub_resource type="SystemFont" id="SystemFont_tbgi4"]
 font_names = PackedStringArray("Lato")
 
 [sub_resource type="Theme" id="Theme_sgp6g"]
-default_font = SubResource("SystemFont_o5qli")
+default_font = SubResource("SystemFont_tbgi4")
 default_font_size = 100
 
 [sub_resource type="SystemFont" id="SystemFont_sugp2"]
@@ -32,15 +32,22 @@ font_names = PackedStringArray("Lato")
 default_font = SubResource("SystemFont_jyhfs")
 default_font_size = 50
 
+[sub_resource type="SystemFont" id="SystemFont_tefeu"]
+font_names = PackedStringArray("Lato")
+
+[sub_resource type="Theme" id="Theme_o6xl0"]
+default_font = SubResource("SystemFont_tefeu")
+default_font_size = 25
+
 [node name="Main" type="Node" unique_id=909286406]
 script = ExtResource("1_0wfyh")
 
 [node name="Game" parent="." unique_id=1018546056 instance=ExtResource("3_sugp2")]
 process_mode = 4
 
-[node name="GUI" type="CanvasLayer" parent="." unique_id=1611897889]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1611897889]
 
-[node name="MainMenu" type="Control" parent="GUI" unique_id=1381953438]
+[node name="MainMenu" type="Control" parent="UI" unique_id=1381953438]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +59,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("2_sugp2")
 
-[node name="PromptText" type="RichTextLabel" parent="GUI/MainMenu" unique_id=2144246779]
+[node name="PromptText" type="RichTextLabel" parent="UI/MainMenu" unique_id=2144246779]
 layout_mode = 0
 offset_left = 510.0
 offset_top = 807.0
@@ -64,7 +71,7 @@ text = "Press Space to Jump"
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseMenu" type="Control" parent="GUI" unique_id=1237535160]
+[node name="PauseMenu" type="Control" parent="UI" unique_id=1237535160]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -74,7 +81,7 @@ offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 script = ExtResource("4_jyhfs")
 
-[node name="Bg" type="ColorRect" parent="GUI/PauseMenu" unique_id=699062136]
+[node name="Bg" type="ColorRect" parent="UI/PauseMenu" unique_id=699062136]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +91,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.39215687)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/PauseMenu" unique_id=2120443651]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" unique_id=2120443651]
 layout_mode = 0
 offset_left = 711.0
 offset_top = 245.00002
@@ -94,112 +101,112 @@ scale = Vector2(1.25, 1.25)
 pivot_offset = Vector2(250, 286)
 theme_override_constants/separation = 10
 
-[node name="Head" type="RichTextLabel" parent="GUI/PauseMenu/VBoxContainer" unique_id=850405436]
+[node name="Head" type="RichTextLabel" parent="UI/PauseMenu/VBoxContainer" unique_id=850405436]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 theme = SubResource("Theme_jyhfs")
 text = "Breath."
 horizontal_alignment = 1
 
-[node name="MasterContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1802606195]
+[node name="MasterContainer" type="VBoxContainer" parent="UI/PauseMenu/VBoxContainer" unique_id=1802606195]
 visible = false
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MasterContainer" unique_id=164006074]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/MasterContainer" unique_id=164006074]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GUI/PauseMenu/VBoxContainer/MasterContainer/CenterContainer" unique_id=496913525]
+[node name="Label" type="Label" parent="UI/PauseMenu/VBoxContainer/MasterContainer/CenterContainer" unique_id=496913525]
 layout_mode = 2
 theme = SubResource("Theme_sugp2")
 text = "Master"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PauseMenu/VBoxContainer/MasterContainer" unique_id=1226545173]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu/VBoxContainer/MasterContainer" unique_id=1226545173]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer" unique_id=397461438]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer" unique_id=397461438]
 layout_mode = 2
 
-[node name="MasterSlider" type="HSlider" parent="GUI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer/CenterContainer" unique_id=1669338957]
+[node name="MasterSlider" type="HSlider" parent="UI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer/CenterContainer" unique_id=1669338957]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_mode = 0
 value = 100.0
 
-[node name="MasterSpinBox" type="SpinBox" parent="GUI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer" unique_id=1621891502]
+[node name="MasterSpinBox" type="SpinBox" parent="UI/PauseMenu/VBoxContainer/MasterContainer/HBoxContainer" unique_id=1621891502]
 layout_mode = 2
 theme = SubResource("Theme_tefeu")
 value = 100.0
 
-[node name="MusicContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1661162419]
+[node name="MusicContainer" type="VBoxContainer" parent="UI/PauseMenu/VBoxContainer" unique_id=1661162419]
 visible = false
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MusicContainer" unique_id=1719993080]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/MusicContainer" unique_id=1719993080]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GUI/PauseMenu/VBoxContainer/MusicContainer/CenterContainer" unique_id=714156172]
+[node name="Label" type="Label" parent="UI/PauseMenu/VBoxContainer/MusicContainer/CenterContainer" unique_id=714156172]
 layout_mode = 2
 theme = SubResource("Theme_sugp2")
 text = "Music"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PauseMenu/VBoxContainer/MusicContainer" unique_id=2069173284]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu/VBoxContainer/MusicContainer" unique_id=2069173284]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer" unique_id=159620495]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer" unique_id=159620495]
 layout_mode = 2
 
-[node name="MusicSlider" type="HSlider" parent="GUI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer/CenterContainer" unique_id=1827480211]
+[node name="MusicSlider" type="HSlider" parent="UI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer/CenterContainer" unique_id=1827480211]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_mode = 0
 value = 100.0
 
-[node name="MusicSpinBox" type="SpinBox" parent="GUI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer" unique_id=885162223]
+[node name="MusicSpinBox" type="SpinBox" parent="UI/PauseMenu/VBoxContainer/MusicContainer/HBoxContainer" unique_id=885162223]
 layout_mode = 2
 theme = SubResource("Theme_tefeu")
 value = 100.0
 
-[node name="SFXContainer" type="VBoxContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=1032946754]
+[node name="SFXContainer" type="VBoxContainer" parent="UI/PauseMenu/VBoxContainer" unique_id=1032946754]
 visible = false
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/SFXContainer" unique_id=644937514]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/SFXContainer" unique_id=644937514]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GUI/PauseMenu/VBoxContainer/SFXContainer/CenterContainer" unique_id=1323620988]
+[node name="Label" type="Label" parent="UI/PauseMenu/VBoxContainer/SFXContainer/CenterContainer" unique_id=1323620988]
 layout_mode = 2
 theme = SubResource("Theme_sugp2")
 text = "SFX"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PauseMenu/VBoxContainer/SFXContainer" unique_id=854959887]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu/VBoxContainer/SFXContainer" unique_id=854959887]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1163221544]
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1163221544]
 layout_mode = 2
 
-[node name="SFXSlider" type="HSlider" parent="GUI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer/CenterContainer" unique_id=1076041880]
+[node name="SFXSlider" type="HSlider" parent="UI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer/CenterContainer" unique_id=1076041880]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_mode = 0
 value = 100.0
 
-[node name="SFXSpinBox" type="SpinBox" parent="GUI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1061040206]
+[node name="SFXSpinBox" type="SpinBox" parent="UI/PauseMenu/VBoxContainer/SFXContainer/HBoxContainer" unique_id=1061040206]
 layout_mode = 2
 theme = SubResource("Theme_tefeu")
 value = 100.0
 
-[node name="MarginContainer" type="MarginContainer" parent="GUI/PauseMenu/VBoxContainer" unique_id=369638225]
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/VBoxContainer" unique_id=369638225]
 layout_mode = 2
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_right = 70
 
-[node name="UnpauseBtn" type="Button" parent="GUI/PauseMenu/VBoxContainer/MarginContainer" unique_id=1931219263]
+[node name="UnpauseBtn" type="Button" parent="UI/PauseMenu/VBoxContainer/MarginContainer" unique_id=1931219263]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 offset_transform_enabled = true
@@ -207,5 +214,23 @@ offset_transform_position = Vector2(0, 10)
 theme = SubResource("Theme_tbgi4")
 text = "Continue"
 
-[connection signal="unpause" from="GUI/PauseMenu" to="." method="_on_pause_menu_unpause"]
-[connection signal="pressed" from="GUI/PauseMenu/VBoxContainer/MarginContainer/UnpauseBtn" to="GUI/PauseMenu" method="_on_button_pressed"]
+[node name="GUI" type="Control" parent="UI" unique_id=278558668]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Meters" type="RichTextLabel" parent="UI/GUI" unique_id=493061226]
+modulate = Color(1, 1, 1, 0.6039216)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 311.0
+offset_bottom = 456.0
+theme = SubResource("Theme_o6xl0")
+bbcode_enabled = true
+text = "Distance Travelled:"
+fit_content = true
+
+[connection signal="unpause" from="UI/PauseMenu" to="." method="_on_pause_menu_unpause"]
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MarginContainer/UnpauseBtn" to="UI/PauseMenu" method="_on_button_pressed"]
