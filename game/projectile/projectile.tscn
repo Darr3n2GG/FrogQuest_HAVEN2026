@@ -63,8 +63,9 @@ size = Vector2(82, 40)
 script = ExtResource("1_4f6j3")
 
 [node name="Bird" type="AnimatedSprite2D" parent="." unique_id=1855488921]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_codqq")
-frame_progress = 0.13113298
+frame_progress = 0.49327946
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074615573]
 position = Vector2(6, 4)

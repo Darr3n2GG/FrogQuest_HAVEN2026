@@ -15,4 +15,4 @@ func summonProjectile():
 		var projectile = projectile_path.instantiate()
 		projectile.dir = randi_range(0,1)
 		projectile.initHeight = 900 - i * 100
-		add_child(projectile)
+		call_deferred("add_child", projectile)

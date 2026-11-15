@@ -8,6 +8,7 @@ size = Vector2(500, 166)
 [node name="Trampoline" type="Area2D" unique_id=811409433]
 
 [node name="Trampoline" type="Sprite2D" parent="." unique_id=243848526]
+texture_filter = 1
 position = Vector2(-10.499976, -105.00006)
 scale = Vector2(0.8210938, 0.62500006)
 texture = ExtResource("1_ccm3x")

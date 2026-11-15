@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpt6ovj6oyjw" path="res://images/7 Forest parallax vertical cloud 4.png" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c1cukm8hr1r23" path="res://game/trampoline/trampoline.tscn" id="4_iywne"]
 [ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player/player_camera.gd" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://d0t2o3o0j443v" path="res://images/1 Forest parallax vertical forest low.png" id="6_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b8ggenb57c4lb" path="res://images/frog_dead.png" id="8_0tnpc"]
 
 [sub_resource type="Shader" id="Shader_gee14"]
@@ -87,6 +88,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
 size = Vector2(1920, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vtaks"]
+load_path = "res://.godot/imported/2 Forest parallax vertical forest mid.png-228fb6b4a97623b7ed1cb181772c8d9f.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
 atlas = ExtResource("3_lnu2h")
@@ -240,6 +244,15 @@ position = Vector2(0, -5175)
 position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_codqq")
 
+[node name="2ForestParallaxVerticalForestMid" type="Sprite2D" parent="Parallax" unique_id=733743316]
+position = Vector2(949, -998)
+texture = SubResource("CompressedTexture2D_vtaks")
+
+[node name="1ForestParallaxVerticalForestLow" type="Sprite2D" parent="Parallax" unique_id=336574844]
+position = Vector2(946, -954)
+scale = Vector2(1.0103947, 1.0045391)
+texture = ExtResource("6_dinhu")
+
 [node name="Trampoline" parent="." unique_id=811409433 instance=ExtResource("4_iywne")]
 position = Vector2(969, 687)
 
@@ -248,12 +261,14 @@ position = Vector2(960, 551)
 script = ExtResource("2_lnu2h")
 
 [node name="Frog" type="AnimatedSprite2D" parent="Player" unique_id=1354761625]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_codqq")
-animation = &"idle"
-frame_progress = 0.356668
+animation = &"fall"
+frame_progress = 0.8523341
 
 [node name="Dead" type="Sprite2D" parent="Player" unique_id=777966678]
 visible = false
+texture_filter = 1
 position = Vector2(-2.0000076, 5.999996)
 scale = Vector2(0.24979742, 0.24979748)
 texture = ExtResource("8_0tnpc")
