@@ -250,6 +250,7 @@ shape = SubResource("RectangleShape2D_codqq")
 
 [node name="2ForestParallaxVerticalForestMid" type="Sprite2D" parent="Bg" unique_id=733743316]
 position = Vector2(959, -998)
+scale = Vector2(1.023158, 1)
 texture = SubResource("CompressedTexture2D_vtaks")
 
 [node name="1ForestParallaxVerticalForestLow" type="Sprite2D" parent="Bg" unique_id=336574844]
@@ -258,7 +259,51 @@ scale = Vector2(1.0103947, 1.0045391)
 texture = ExtResource("6_dinhu")
 
 [node name="Grass" type="Sprite2D" parent="Bg" unique_id=1336641672]
-position = Vector2(113, 886)
+position = Vector2(113, 890)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+
+[node name="Grass2" type="Sprite2D" parent="Bg" unique_id=2050622723]
+position = Vector2(335, 890)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+flip_h = true
+
+[node name="Grass3" type="Sprite2D" parent="Bg" unique_id=1672975563]
+position = Vector2(557, 890)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+
+[node name="Grass4" type="Sprite2D" parent="Bg" unique_id=91967623]
+position = Vector2(779, 890)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+flip_h = true
+
+[node name="Grass5" type="Sprite2D" parent="Bg" unique_id=807097621]
+position = Vector2(1000, 889.99994)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+
+[node name="Grass6" type="Sprite2D" parent="Bg" unique_id=1310763038]
+position = Vector2(1222, 889.99994)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+flip_h = true
+
+[node name="Grass7" type="Sprite2D" parent="Bg" unique_id=2091913563]
+position = Vector2(1444, 889.99994)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+
+[node name="Grass8" type="Sprite2D" parent="Bg" unique_id=1829643059]
+position = Vector2(1666, 889.99994)
+scale = Vector2(0.21166275, 0.2104361)
+texture = ExtResource("6_kvuet")
+flip_h = true
+
+[node name="Grass9" type="Sprite2D" parent="Bg" unique_id=2034102535]
+position = Vector2(1888.0004, 889.99994)
 scale = Vector2(0.21166275, 0.2104361)
 texture = ExtResource("6_kvuet")
 
