@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bost"]
 size = Vector2(48, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1wmf"]
+size = Vector2(48, 18)
+
 [node name="projectile" type="CharacterBody2D" unique_id=1690657124]
 script = ExtResource("1_4f6j3")
 
@@ -17,7 +20,10 @@ texture = SubResource("CanvasTexture_7bost")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074615573]
 shape = SubResource("RectangleShape2D_7bost")
 
-[node name="Timer" type="Timer" parent="." unique_id=1928060512]
-wait_time = 20.0
+[node name="Area2D" type="Area2D" parent="." unique_id=1277127120]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1208226458]
+shape = SubResource("RectangleShape2D_d1wmf")
+debug_color = Color(0.9484684, 0.22952873, 7.70092e-07, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

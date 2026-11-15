@@ -4,7 +4,7 @@ class_name Player extends CharacterBody2D
 @export var gravity: float = 980.0
 @export var motion: int = 300
 @export var levelBoundary: Array = [20, 200, 400, 800]
-@export var levelMultiplier: Array = [-1.4, -1.8, -2.0]
+@export var levelMultiplier: Array = [-1.4, -1.8, -2.0, -2.5]
 var speed: int = 0
 var graviAcc: float = 0
 var bounceMultiplier: float = -1.1
@@ -47,8 +47,10 @@ func _on_trampoline_body_entered(body: Node2D) -> void:
 		velocity.y = velocity.y * bounceMultiplier
 		bounceMultiplier = -1.1 # reset the multiplier after each jump
 		jumped = false # reset jump state
+		
 		if level > 0:
 			get_parent().summonProjectile()
+		Global.damaged = false
 
 # player hit jump too early
 func _on_critical_time_timeout():

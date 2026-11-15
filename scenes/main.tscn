@@ -60,7 +60,10 @@ mouse_filter = 2
 script = ExtResource("2_sugp2")
 
 [node name="PromptText" type="RichTextLabel" parent="UI/MainMenu" unique_id=2144246779]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.021354167
+anchor_right = 0.021354167
 offset_left = 510.0
 offset_top = 807.0
 offset_right = 1410.0
@@ -106,6 +109,7 @@ custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 theme = SubResource("Theme_jyhfs")
 text = "Breath."
+scroll_active = false
 horizontal_alignment = 1
 
 [node name="MasterContainer" type="VBoxContainer" parent="UI/PauseMenu/VBoxContainer" unique_id=1802606195]

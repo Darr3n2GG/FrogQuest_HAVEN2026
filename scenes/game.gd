@@ -10,7 +10,8 @@ func _physics_process(_delta: float) -> void:
 	#900 = upper boundary of trampoline
 
 func summonProjectile():
-	var projectile = projectile_path.instantiate()
-	projectile.dir = randi_range(0,1)
-	projectile.initHeight = randf_range(100* (900-player.levelBoundary[player.level]), 700)
-	add_child(projectile)
+	for i in range(100, player.levelBoundary[player.level], 100):
+		var projectile = projectile_path.instantiate()
+		projectile.dir = randi_range(0,1)
+		projectile.initHeight = 900 - i * 100
+		add_child(projectile)
