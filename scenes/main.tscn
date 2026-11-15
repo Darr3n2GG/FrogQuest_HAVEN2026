@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bql6nyrdfmoux" path="res://scenes/game.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cjoithmbqfu6l" path="res://scenes/pause_menu.gd" id="4_jyhfs"]
 
-[sub_resource type="SystemFont" id="SystemFont_o5qli"]
+[sub_resource type="SystemFont" id="SystemFont_tbgi4"]
 font_names = PackedStringArray("Lato")
 
 [sub_resource type="Theme" id="Theme_sgp6g"]
-default_font = SubResource("SystemFont_o5qli")
+default_font = SubResource("SystemFont_tbgi4")
 default_font_size = 100
 
 [sub_resource type="SystemFont" id="SystemFont_sugp2"]

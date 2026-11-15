@@ -1,10 +1,91 @@
 [gd_scene format=3 uid="uid://bql6nyrdfmoux"]
 
 [ext_resource type="Script" uid="uid://cmp7q6bbyrbw8" path="res://scenes/game.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://b5efmledjwyjm" path="res://game/parallax.gd" id="2_gee14"]
 [ext_resource type="Script" uid="uid://cuoyklr1ekfsb" path="res://game/player/player.gd" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://fuujhslj7cxj" path="res://images/9 Forest parallax vertical skybox.png" id="2_p57ef"]
 [ext_resource type="Texture2D" uid="uid://c4tf2f7pjl5q4" path="res://images/frog.png" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bcpt6ovj6oyjw" path="res://images/7 Forest parallax vertical cloud 4.png" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c1cukm8hr1r23" path="res://game/trampoline/trampoline.tscn" id="4_iywne"]
 [ext_resource type="Script" uid="uid://bouklfhp87jth" path="res://game/player/player_camera.gd" id="4_lbhrr"]
+
+[sub_resource type="Shader" id="Shader_gee14"]
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(0, 0, 0, 1);
+uniform bool smooth_mode = false;
+uniform bool reverse = false;
+uniform float opacity : hint_range(0, 1) = 1.0;
+
+uniform bool use_custom_texture = false;
+uniform sampler2D custom_texture;
+
+void fragment() {
+	vec4 final_color;
+	if (use_custom_texture) {
+	 	final_color = vec4(COLOR.rgb, texture(custom_texture, UV).r);
+	} else {
+	 	final_color = vec4(color.rgb, COLOR.r);
+	}
+
+	if (reverse) {
+		final_color.a = clamp(1.0 - final_color.a, 0.0, 1.0);
+	}
+
+	if (smooth_mode) {
+		final_color.a = mix(0.0, 1.0, clamp(final_color.a - 1.0 + opacity * 2.0, 0.0, 1.0));
+	} else {
+		final_color.a = clamp(ceil(final_color.a + opacity * 1.00001 - 1.0), 0.0, 1.0);
+	}
+	COLOR = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gee14"]
+shader = SubResource("Shader_gee14")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/smooth_mode = false
+shader_parameter/reverse = false
+shader_parameter/opacity = 1.0
+shader_parameter/use_custom_texture = false
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clouds/CloudsBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clouds/CloudsBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.6155724, 1.4640907),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tnpc"]
+_data = {
+&"RESET": SubResource("Animation_u5sy4"),
+&"fade": SubResource("Animation_gee14")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_codqq"]
+size = Vector2(1920, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_codqq"]
 radius = 50.0
@@ -12,6 +93,42 @@ height = 120.0
 
 [node name="Game" type="Node2D" unique_id=106302471]
 script = ExtResource("1_yqjtg")
+
+[node name="Parallax" type="Node2D" parent="." unique_id=197084111]
+script = ExtResource("2_gee14")
+
+[node name="Sky" type="Parallax2D" parent="Parallax" unique_id=506612562]
+scale = Vector2(1.0103947, 1.0045391)
+scroll_scale = Vector2(0, 1)
+repeat_size = Vector2(0, 1210)
+
+[node name="SkyBg" type="Sprite2D" parent="Parallax/Sky" unique_id=80501103]
+position = Vector2(948.14435, 380.2739)
+texture = ExtResource("2_p57ef")
+vframes = 2
+
+[node name="Clouds" type="Parallax2D" parent="Parallax" unique_id=816053416]
+material = SubResource("ShaderMaterial_gee14")
+scroll_scale = Vector2(1, 0.7)
+repeat_size = Vector2(1900, 1725)
+autoscroll = Vector2(10, 0)
+
+[node name="CloudsBg" type="Sprite2D" parent="Parallax/Clouds" unique_id=153369598]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 0)
+texture = ExtResource("3_u5sy4")
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax" unique_id=505610564]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_0tnpc")
+
+[node name="CloudArea" type="Area2D" parent="Parallax" unique_id=1188506683]
+position = Vector2(0, -5175)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/CloudArea" unique_id=922153924]
+position = Vector2(960, 0)
+shape = SubResource("RectangleShape2D_codqq")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2079881809]
 position = Vector2(960, 551)
@@ -43,5 +160,6 @@ offset_top = -473.0
 offset_right = -581.0
 offset_bottom = -379.0
 
+[connection signal="body_entered" from="Parallax/CloudArea" to="Parallax" method="_on_cloud_area_body_entered"]
 [connection signal="timeout" from="Player/CriticalTime" to="Player" method="_on_critical_time_timeout"]
 [connection signal="body_entered" from="Trampoline" to="Player" method="_on_trampoline_body_entered"]
