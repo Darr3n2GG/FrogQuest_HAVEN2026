@@ -44,7 +44,7 @@ func toggle_pause() -> void:
 		is_game_running = true
 
 func update_meters(meters: float) -> void:
-	gui.get_node("Meters").text = "Distance Travelled: " + var_to_str(meters) + "m"
+	gui.get_node("Meters").text = "Distance: " + var_to_str(meters) + "m"
 
 func _on_pause_menu_unpause() -> void:
 	pause_menu.hide()

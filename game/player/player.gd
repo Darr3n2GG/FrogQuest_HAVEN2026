@@ -20,7 +20,7 @@ var has_flicker: bool = false
 
 func _physics_process(delta: float) -> void:
 	height = (900 - global_position.y) / 100
-	if Input.is_action_pressed("Jump") and !jumped:
+	if Input.is_action_just_pressed("Jump") and !jumped:
 		# activate movement after first jump
 		graviAcc = gravity
 		speed = motion
@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		bounceMultiplier = levelMultiplier[level]
 		# avoid spam jump
 		jumped = true
-		bounce.play()
 	
 	# left right movement
 	var direction = Input.get_axis("Left", "Right")
@@ -65,14 +64,13 @@ func _physics_process(delta: float) -> void:
 # when frog touches trampoline
 func _on_trampoline_body_entered(body: Node2D) -> void:
 	if body == self:
-		if Global.damaged:
-			if !jumped:
-				Global.gameOver = true
-			else:
-				has_flicker = false
+		if Global.damaged and !jumped:
+			Global.gameOver = true
 				
 		velocity.y = velocity.y * bounceMultiplier
 		bounceMultiplier = -1.1 # reset the multiplier after each jump
+		if jumped:
+			bounce.play()
 		jumped = false # reset jump state
 		Global.damaged = false # reset damaged state
 		

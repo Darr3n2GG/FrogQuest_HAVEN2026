@@ -10,9 +10,16 @@ func _physics_process(_delta: float) -> void:
 		get_parent().update_meters(player_height)
 	#900 = upper boundary of trampoline
 
-func summonProjectile():
+func summonProjectile() -> void:
 	for i in range(100, player.maxHeight *2, 50):
 		var projectile = projectile_path.instantiate()
 		projectile.dir = randi_range(0,1)
 		projectile.initHeight = 900 - i * 100
+		
 		call_deferred("add_child", projectile)
+
+
+func reset_game() -> void:
+	player.global_position = Vector2(960, 739)
+	# delete birds
+	

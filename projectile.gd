@@ -17,6 +17,7 @@ func _ready():
 		$Bird.flip_h = true
 
 func _physics_process(_delta):
+	$Bird.play("default")
 	move_and_slide()
 	
 	# despawn if out of screen
@@ -25,7 +26,7 @@ func _physics_process(_delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body == Player:
+	if body is Player:
 		Global.damaged = true
 
 #despawn after certain time
