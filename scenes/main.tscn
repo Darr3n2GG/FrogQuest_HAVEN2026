@@ -391,7 +391,6 @@ text = "Respawn"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1201122219]
 stream = SubResource("AudioStreamRandomizer_jyhfs")
-volume_db = -17.333
 
 [connection signal="unpause" from="UI/PauseMenu" to="." method="_on_pause_menu_unpause"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MarginContainer/UnpauseBtn" to="UI/PauseMenu" method="_on_button_pressed"]
